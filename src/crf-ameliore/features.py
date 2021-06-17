@@ -214,13 +214,3 @@ def score(entree, w) :
   score_n = sum(entree[ft] * w[str(N)][ft] for ft in entree if ft in w[str(N)])
 
   return round(normalize(score_i, ma, mi), 3), round(normalize(score_n, ma, mi), 3)
-
-def estime(example: set) :
-  score_b = log(prior[B])
-  score_i = log(prior[I])
-
-  for ft in all_features :
-    if ft in example :
-      score_b += log(llh[B][ft])
-      score_i += log(llh[I][ft])
-  return round(normalize(score_b, max_serie, min_serie), 3), round(normalize(score_i, max_serie, min_serie), 3)

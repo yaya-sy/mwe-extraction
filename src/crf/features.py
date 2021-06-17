@@ -1,5 +1,7 @@
 """Ce module extrait les caractéristiques lexicales et syntaxiques de chaque mot."""
 from itertools import chain
+import json
+
 class Features(object) :
   """Cette classe permet d'extraire les caractéristiques lexicales
   et syntaxiques des mots.
@@ -15,6 +17,8 @@ class Features(object) :
   - span_s : int
     la taille de la fenêtre de contexte à considérer pour les mots précédents
     et suivants du mot courant.
+  - w :
+    paramètres estimés en amont
 
   Methodes
   --------
@@ -29,7 +33,8 @@ class Features(object) :
                test: list,
                dev: list,
                span_w: int,
-               span_s: int) -> object:
+               span_s: int
+               ) -> object:
     self.train = train
     self.test = test
     self.dev = dev
@@ -104,7 +109,8 @@ class Features(object) :
         features.update({"maj" + "=" + str(p[position][0].isupper()) : 1})
         features.update({"mot" + "=" + p[position] : 1})
         features.update({"Maj" + "=" + str(p[position].isupper()) : 1})
-        #features.update({"biais" : 1})
+
+        # features.update({"biais" : 1})
     if bool(features) :
         return features, t[position]
 

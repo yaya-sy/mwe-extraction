@@ -29,15 +29,14 @@ class Evaluation :
   - oov :
     retourne le pourcentage de mots inconnus du corpus de train \
     dans le corpus de test
-  - fscore:
-    retourne le fscore du modèle entraînés
   """
   def __init__(self: object,
                clf,
                y_golds_test: list,
                feats_test: list,
                feats_train: list,
-               y_golds_train: list) -> None :
+               y_golds_train: list,
+               ) -> None :
     self.clf = clf
     self.feats_test = feats_test
     self.y_preds_test = self.test_predict(self.feats_test)
@@ -50,6 +49,18 @@ class Evaluation :
     self.y_golds_train = list(chain(*y_golds_train))
     self.mcs_train = self.__map(self.feats_train, self.y_golds_train)
     self.tcs_train = [y for y in self.__enumerate_tags(self.y_golds_train) if len(y) > 1]
+
+    # self.feats_dev = feats_dev
+    # self.y_golds_dev = list(chain(*y_golds_dev))
+    # self.mcs_dev =  [y for y in self.__enumerate_tags(self.y_golds_dev) if len(y) > 1]
+    # mots = []
+    # for phrase in self.feats_dev :
+    #   for ft in phrase :
+    #     for key in ft :
+    #       if key.startswith("mot") :
+    #         mots.append(key.split("=")[-1])
+
+    # self.mots_enum = [t + "_" + str(i) for i, t in enumerate(mots)]
 
   def __regroupe_mots_composes(self: object, tags: list) -> None :
     # Fonction qui regrouppe les mots composés en liste.
@@ -173,7 +184,7 @@ class Evaluation :
     """
     mcs_ts, golds = zip(*self.mcs_test)
     mcs_tr = [mc for (mc, tc) in self.mcs_train]
-    mcs, golds = zip(*((mc, ct) for (mc, ct) in self.mcs_test if mc in mcs_tr))
+    mcs, golds = zip(*((mc, ct) for (mc, ct) in self.mcs_test if mc not in mcs_tr))
 
     preds = [pred for pred in self.__enumerate_tags(self.y_preds_test) if len(pred) > 1]
 

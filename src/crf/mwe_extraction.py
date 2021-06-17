@@ -21,6 +21,7 @@ if __name__ == "__main__":
         required=True,
         help='les informations de split dev, test, train'
         )
+
     args = parser.parse_args()
     corpus = open(args.corpus)
     infos_split = get_infos(open(args.split_infos, "r").read())
@@ -40,6 +41,8 @@ if __name__ == "__main__":
     c2=0.008765058107413456,
     all_possible_transitions=True
     )
+
+    crf.fit(train_feats, train_golds)
 
     evaluation = Evaluation(crf, test_golds, test_feats, train_feats, train_golds)
 
