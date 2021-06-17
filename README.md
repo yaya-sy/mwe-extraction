@@ -11,7 +11,7 @@ user@name:~$ python3 mwe_extraction --corpus --split_infos
 
 où --corpus est le corpus et split_infos le fichier qui contient les infos en découpage test, train, dev. Dans le cas du crf amélioré, il faut ajouter le paramètre -w les paramètres estimés en amont (vparametres) servant d'amélioration
 
-Par exemple si on veut test le crf amélioré :
+Par exemple si on veut tester le crf amélioré :
 
 ```console
 user@name:~/mwe-extraction$ python3 src/crf-ameliore/mwe_extraction.py --corpus data/sequoia.surf.parseme_.frsemcor --split_infos data/sequoia_split_info --w src/crf-ameliore/vparametres.json 
