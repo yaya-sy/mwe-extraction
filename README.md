@@ -1,5 +1,5 @@
 # mwe-extraction
-Implémentation de systèmes de reconnaissance d'unités polylexicales pour l'étiquetage morphosyntaxique. Nous utilsons deux modèles principaux : une simple **regression logistique multonomiale**, et un modèle **crf**. Une amélioration que nous proposons est d'intégrer, sous forme de caractéristiques, des paramètres estimés en amont sur un lexique d'unités polylexicales extraites du corpus **_lefff_** (https://www.labri.fr/perso/clement/lefff/)
+Implémentation de systèmes de reconnaissance d'unités polylexicales pour l'étiquetage morphosyntaxique. Nous utilisons deux modèles principaux : une simple **regression logistique multonomiale**, et un modèle **crf**. Une amélioration que nous proposons est d'intégrer, sous forme de caractéristiques, des paramètres estimés en amont sur un lexique d'unités polylexicales extraites du corpus **_lefff_** (https://www.labri.fr/perso/clement/lefff/)
 
 ## Comment lancer le programme
 
