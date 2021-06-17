@@ -9,7 +9,7 @@ D'abord, se placer dans le dossier racine du projet, ensuite lancer cette comman
 user@name:~$ python3 mwe_extraction --corpus --split_infos
 ```
 
-où --corpus est le corpus et split_infos le fichier qui contient les infos en découpage test, train, dev. Dans le cas du crf amélioré, il faut ajouter le paramètre -w les paramètres estimées en amont (vparametres) servant d'amélioration
+où --corpus est le corpus et split_infos le fichier qui contient les infos en découpage test, train, dev. Dans le cas du crf amélioré, il faut ajouter le paramètre -w les paramètres estimés en amont (vparametres) servant d'amélioration
 
 Par exemple si on veut test le crf amélioré :
 
