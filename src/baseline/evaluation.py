@@ -173,7 +173,7 @@ class Evaluation :
     """
     mcs_ts, golds = zip(*self.mcs_test)
     mcs_tr = [mc for (mc, tc) in self.mcs_train]
-    mcs, golds = zip(*((mc, ct) for (mc, ct) in self.mcs_test if mc in mcs_tr))
+    mcs, golds = zip(*((mc, ct) for (mc, ct) in self.mcs_test if mc not in mcs_tr))
 
     preds = [pred for pred in self.__enumerate_tags(self.y_preds_test) if len(pred) > 1]
 
