@@ -3,11 +3,20 @@ Implémentation de systèmes de reconnassance d'unités polylexicales pour l'ét
 
 ## Comment lancer le programme
 
-D'abord, se placer dans le dossier du modèle que l'on veut tester, ensuite lancer cette commande :
+D'abord, se placer dans le dossier racine du projet, ensuite lancer cette commande :
 
 ```console
-user@name:~$ mwe_extraction --corpus
+user@name:~$ python3 mwe_extraction --corpus --split_infos
 ```
+
+où --corpus est le corpus et split_infos le fichier qui contient les infos en découpage test, train, dev. Dans le cas du crf amélioré, il faut ajouter le paramètre -w les paramètres estimées en amont (vparametres) servant d'amélioration
+
+Par exemple si on veut test le crf amélioré :
+
+```console
+user@name:~/mwe-extraction$ python3 src/crf-ameliore/mwe_extraction.py --corpus data/sequoia.surf.parseme_.frsemcor --split_infos data/sequoia_split_info --w src/crf-ameliore/vparametres.json 
+```
+
 ## Ce qui est recquis
 * scikit-learn (https://scikit-learn.org/stable/)
 * sklearn-crfsuite (https://sklearn-crfsuite.readthedocs.io/en/latest/)
