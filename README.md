@@ -6,7 +6,7 @@ Implémentation de systèmes de reconnaissance d'unités polylexicales pour l'é
 D'abord, se placer dans le dossier racine du projet, ensuite lancer cette commande :
 
 ```console
-user@name:~$ python3 mwe_extraction --corpus --split_infos
+user@name:~$ python3 mwe_extraction --corpus corpus servant d'apprentissage et de test --split_infos fichier contenant les infos sur le découpage du corpus
 ```
 
 où --corpus est le corpus et split_infos le fichier qui contient les infos en découpage test, train, dev. Dans le cas du crf amélioré, il faut ajouter le paramètre -w les paramètres estimés en amont (vparametres) servant d'amélioration
